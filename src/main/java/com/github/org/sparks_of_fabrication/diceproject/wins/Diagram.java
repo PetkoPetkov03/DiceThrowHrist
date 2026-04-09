@@ -23,11 +23,11 @@ public class Diagram extends javax.swing.JPanel {
      */
     public Diagram() {
         initComponents();
-        dLogic = new DiagramLogic(this.getSize());
+//        dLogic = new DiagramLogic(this.getSize());
     }
     
     public void afterInitSetup() {
-        dLogic.recalcRepaint(this.getSize());
+//        dLogic.recalcRepaint(this.getSize());
     }
 
     /**
@@ -60,7 +60,7 @@ public class Diagram extends javax.swing.JPanel {
 //        Dimension d = this.getSize();
         
         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-        dLogic.draw(g);
+//        dLogic.draw(g);
     }
 
 

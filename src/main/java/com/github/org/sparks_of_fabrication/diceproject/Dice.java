@@ -6,6 +6,7 @@ package com.github.org.sparks_of_fabrication.diceproject;
 
 import com.github.org.sparks_of_fabrication.diceproject.utils.Pair;
 import java.time.Instant;
+import java.util.Map;
 import java.util.Random;
 import java.util.concurrent.Callable;
 import java.util.concurrent.CountDownLatch;
@@ -61,6 +62,24 @@ public class Dice implements Callable<Double[]> {
         this.dThrows = times;
         
         return this;
+    }
+    
+    public static Double[] diceThrowCongregation(Map<Integer, Double[]> results, int dies, int times) {
+        Double[] result = new Double[times];
+        
+        for(int dThrow = 0; dThrow < times; dThrow++) {
+            double sum = 0;
+            
+            for(int i = 0; i < dies; i++) {
+                Double[] dice = results.get(i);
+                
+                sum += dice[dThrow];
+            }
+            
+            result[dThrow] = sum;
+        }
+        
+        return result;
     }
     
     public static Double[] diceThrowCongregation(Double[] dice1, Double[] dice2, int times) {
